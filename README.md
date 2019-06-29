@@ -6,7 +6,6 @@ How to use it:
 
 * cd to the ppsspp-builder folder and from the command line run:
 
-        cd ppsspp
         git submodule update --init --recursive
 
 * if you want to build an ipa
