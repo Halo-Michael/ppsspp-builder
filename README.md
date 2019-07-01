@@ -1,4 +1,4 @@
-PPSSPP builder
+PPSSPP builder for iOS
 ======================
 
 How to use it:
