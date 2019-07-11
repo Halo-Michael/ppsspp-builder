@@ -2,7 +2,9 @@ TARGET = PPSSPP
 
 .PHONY: all clean
 
-all: ipa deb
+all:
+
+	sh make-all.sh
 
 ipa:
 	sh make-ipa.sh

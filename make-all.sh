@@ -16,6 +16,7 @@ else
 	echo "Please make sure you are using the latest xcode command line tools like Xcode 10.1."
 	cd ppsspp/build-ios
 	xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO PRODUCT_BUNDLE_IDENTIFIER="org.ppsspp.ppsspp" -sdk iphoneos -configuration Release
+	ln -sf Release-iphoneos Payload
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -28,9 +29,13 @@ else
 	<true/>
 </dict>
 </plist>' > ent.xml
-	ldid -Sent.xml Release-iphoneos/PPSSPP.app/PPSSPP
+	ldid -Sent.xml Payload/PPSSPP.app/PPSSPP
 	version_number=`echo "$(git describe --tags --match="v*" | sed -e 's@-\([^-]*\)-\([^-]*\)$@-\1-\2@;s@^v@@;s@%@~@g')"`
-	echo ${version_number} > Release-iphoneos/PPSSPP.app/Version.txt
+	echo ${version_number} > Payload/PPSSPP.app/Version.txt
+	echo "Making ipa..."
+	zip -r9 ../../PPSSPP_0v${version_number}.ipa Payload/PPSSPP.app
+	echo "Done, you should get the ipa now :)"
+	echo "Making deb..."
 	package_name="org.ppsspp.ppsspp-dev-latest_0v${version_number}_iphoneos-arm"
 	mkdir $package_name
 	mkdir ${package_name}/DEBIAN
@@ -58,5 +63,5 @@ Version: 0v${version_number}
 	cp -a Release-iphoneos/PPSSPP.app ${package_name}/Applications/PPSSPP.app
 	chown -R 1004:3 ${package_name}
 	dpkg -b ${package_name} ../../${package_name}.deb
-	echo "Done, you should get the deb now :)"
+	echo "Done, you should get the ipa and deb now :)"
 fi
