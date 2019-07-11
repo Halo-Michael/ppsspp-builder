@@ -3,8 +3,10 @@ TARGET = PPSSPP
 .PHONY: all clean
 
 all:
-
 	sh make-all.sh
+
+quickall:
+	sh quick-make-all.sh
 
 ipa:
 	sh make-ipa.sh

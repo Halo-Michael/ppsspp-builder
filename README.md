@@ -40,7 +40,7 @@ and run:
 
             make deb
             
-    * if you want to build quickly
+    * if you want to build quickly (or just use Xcode 9,4 to complete all compilation processes)
 
             make quickdeb
 
