@@ -26,5 +26,6 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 ldid -Sent.xml Payload/PPSSPP.app/PPSSPP
 version_number=`echo "$(git describe --tags --match="v*" | sed -e 's@-\([^-]*\)-\([^-]*\)$@-\1-\2@;s@^v@@;s@%@~@g')"`
 echo ${version_number} > Payload/PPSSPP.app/Version.txt
+chown -R 1004:3 Payload
 zip -r9 ../../PPSSPP_0v${version_number}.ipa Payload/PPSSPP.app
 echo "Done, you should get the ipa now :)"
