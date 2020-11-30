@@ -1,24 +1,15 @@
-TARGET = PPSSPP
-
 .PHONY: all clean
 
-all:
-	sh make-all.sh
+all: ipa deb
 
-quickall:
-	sh quick-make-all.sh
+application:
+	sh make-application.sh
 
-ipa:
+ipa: application
 	sh make-ipa.sh
 
-deb:
+deb: application
 	sh make-deb.sh
-
-quickipa:
-	sh quick-make-ipa.sh
-
-quickdeb:
-	sh quick-make-deb.sh
 
 clean:
 	rm -rf ppsspp/build-ios *.ipa *.deb

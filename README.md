@@ -4,45 +4,29 @@ PPSSPP builder for iOS
 How to use it:
 --------------
 
-* cd to the ppsspp-builder folder and from the command line run:
+* Cd to the ppsspp-builder folder and from the command line run:
 
         git clone https://github.com/hrydgard/ppsspp.git
         cd ppsspp
         git submodule update --init --recursive
 
-* if you want to build an ipa
-    * if you want to build a better compatibility version*
-        
-        set to use the early xcode command line tools like Xcode 9.4 (Xcode-Preference-Locations-Command Line Tools)
-        then run:
-        
+* Before start, if you want to build a better compatibility version*:
+        Change Xcode Command Line Tools to 9.4.1.
+
+* If you want to build an ipa
+        run:
+
             make ipa
             
-        then change to use the latest xcode command line tools like Xcode 10.1
-        and run:
-        
-            make ipa
-            
-    * if you want to build quickly
-
-            make quickipa
-            
-* if you want to build an deb
-    * if you want to build a better compatibility version*
-
-        set to use the early xcode command line tools like Xcode 9.4 (Xcode-Preference-Locations-Command Line Tools)
-then run:
+* If you want to build an deb
+        run:
 
             make deb
 
-        then change to use the latest xcode command line tools like Xcode 10.1
-and run:
+* If you want to build both
+        run:
 
-            make deb
-            
-    * if you want to build quickly (or just use Xcode 9,4 to complete all compilation processes)
-
-            make quickdeb
+            make all
 
 *Notice:
 --------------

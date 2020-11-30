@@ -1,0 +1,14 @@
+Package: org.ppsspp.ppsspp-dev-latest
+Name: PPSSPP (Dev-Latest)
+Architecture: iphoneos-arm
+Description: A PSP emulator 
+Icon: file:///Library/PPSSPPRepoIcons/org.ppsspp.ppsspp-dev-latest.png
+Homepage: https://build.ppsspp.org/
+Conflicts: com.myrepospace.theavenger.PPSSPP, net.angelxwind.ppsspp, net.angelxwind.ppsspp-testing, org.ppsspp.ppsspp, org.ppsspp.ppsspp-dev-working
+Provides: com.myrepospace.theavenger.PPSSPP, net.angelxwind.ppsspp, net.angelxwind.ppsspp-testing
+Replaces: com.myrepospace.theavenger.PPSSPP, net.angelxwind.ppsspp, net.angelxwind.ppsspp-testing
+Depiction: https://cydia.ppsspp.org/?page/org.ppsspp.ppsspp-dev-latest
+Maintainer: Henrik Rydgård
+Author: Henrik Rydgård
+Section: Games
+Version: 0v
