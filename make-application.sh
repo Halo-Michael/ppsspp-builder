@@ -17,4 +17,3 @@ ln -sf Release-iphoneos Payload
 ldid -S../../ent.xml Payload/PPSSPP.app/PPSSPP
 version_number=`echo "$(git describe --tags --match="v*" | sed -e 's@-\([^-]*\)-\([^-]*\)$@-\1-\2@;s@^v@@;s@%@~@g')"`
 echo ${version_number} > Payload/PPSSPP.app/Version.txt
-chown -R 1004:3 Payload

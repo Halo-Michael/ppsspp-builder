@@ -11,8 +11,8 @@ chmod 0755 ${package_name}/DEBIAN/control
 mkdir ${package_name}/Library
 mkdir ${package_name}/Library/PPSSPPRepoIcons
 cp ../../org.ppsspp.ppsspp.png ${package_name}/Library/PPSSPPRepoIcons/org.ppsspp.ppsspp-dev-latest.png
-chmod 0755 ${package_name}/Library/PPSSPPRepoIcons/org.ppsspp.ppsspp-dev-latest.png
+mkdir ${package_name}/Library/PreferenceLoader
+cp -a ../../Preferences ${package_name}/Library/PreferenceLoader/
 mkdir ${package_name}/Applications
-cp -a Release-iphoneos/PPSSPP.app ${package_name}/Applications/PPSSPP.app
-chown -R 1004:3 ${package_name}
+cp -a Release-iphoneos/PPSSPP.app ${package_name}/Applications/
 dpkg -b ${package_name} ../../${package_name}.deb
