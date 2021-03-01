@@ -14,5 +14,5 @@ cp ../../org.ppsspp.ppsspp.png ${package_name}/Library/PPSSPPRepoIcons/org.ppssp
 mkdir ${package_name}/Library/PreferenceLoader
 cp -a ../../Preferences ${package_name}/Library/PreferenceLoader/
 mkdir ${package_name}/Applications
-cp -a Release-iphoneos/PPSSPP.app ${package_name}/Applications/
+cp -a PPSSPP.app ${package_name}/Applications/
 dpkg -b ${package_name} ../../${package_name}.deb

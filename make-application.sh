@@ -11,9 +11,10 @@ fi
 
 mkdir ppsspp/build-ios
 cd ppsspp/build-ios
-cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchains/ios.cmake -GXcode ..
-xcodebuild clean build -project PPSSPP.xcodeproj CODE_SIGNING_ALLOWED=NO -sdk iphoneos -configuration Release
-ln -sf Release-iphoneos Payload
-ldid -S../../ent.xml Payload/PPSSPP.app/PPSSPP
+cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchains/ios.cmake ..
+make -j4
+cp ../MoltenVK/iOS/Frameworks/libMoltenVK.dylib PPSSPP.app/Frameworks
+ln -s ./ Payload
+ldid -S../../ent.xml PPSSPP.app/PPSSPP
 version_number=`echo "$(git describe --tags --match="v*" | sed -e 's@-\([^-]*\)-\([^-]*\)$@-\1-\2@;s@^v@@;s@%@~@g')"`
-echo ${version_number} > Payload/PPSSPP.app/Version.txt
+echo ${version_number} > PPSSPP.app/Version.txt
