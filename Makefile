@@ -12,4 +12,4 @@ deb: application
 	sh make-deb.sh
 
 clean:
-	rm -rf ppsspp/build-ios *.ipa *.deb
+	rm -rf ppsspp/git-version.cpp ppsspp/build-ios *.ipa *.deb
