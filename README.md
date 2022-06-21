@@ -1,6 +1,8 @@
 PPSSPP builder for iOS
 ======================
 
+* Before you read the README: This README is OUT OF TIME and didn't get any update for long time.
+
 How to use it:
 --------------
 
