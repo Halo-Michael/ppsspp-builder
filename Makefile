@@ -24,8 +24,8 @@ application:
 	cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchains/ios.cmake ..; \
 	${MAKE} -j$$(sysctl -n hw.ncpu); \
 	ln -s ./ Payload; \
-	${LDID} -S -IlibMoltenVK -Kcertificate.p12 PPSSPP.app/Frameworks/libMoltenVK.dylib; \
-	${LDID} -S../../ent.xml -Kcertificate.p12 PPSSPP.app; \
+	${LDID} -S -IlibMoltenVK -K../../certificate.p12 PPSSPP.app/Frameworks/libMoltenVK.dylib; \
+	${LDID} -S../../ent.xml -K../../certificate.p12 PPSSPP.app; \
 	echo $$(git describe --tags --match="v*" | ${SED} -e 's@-\([^-]*\)-\([^-]*\)$$@-\1-\2@;s@^v@@;s@%@~@g') > PPSSPP.app/Version.txt
 
 ipa: application
