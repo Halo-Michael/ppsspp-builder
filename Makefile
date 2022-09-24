@@ -1,7 +1,8 @@
 .PHONY: all clean
 
-SED=/usr/local/Cellar/gnu-sed/4.8/libexec/gnubin/sed
+LDID=/usr/local/bin/ldid
 MAKE=/usr/local/Cellar/make/4.3/libexec/gnubin/make
+SED=/usr/local/Cellar/gnu-sed/4.8/libexec/gnubin/sed
 
 all: ipa deb
 
@@ -23,7 +24,8 @@ application:
 	cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchains/ios.cmake ..; \
 	${MAKE} -j$$(sysctl -n hw.ncpu); \
 	ln -s ./ Payload; \
-	ldid -S../../ent.xml -Iorg.ppsspp.ppsspp PPSSPP.app/PPSSPP; \
+	${LDID} -S -IlibMoltenVK -Kcertificate.p12 PPSSPP.app/Frameworks/libMoltenVK.dylib; \
+	${LDID} -S../../ent.xml -Kcertificate.p12 PPSSPP.app; \
 	echo $$(git describe --tags --match="v*" | ${SED} -e 's@-\([^-]*\)-\([^-]*\)$$@-\1-\2@;s@^v@@;s@%@~@g') > PPSSPP.app/Version.txt
 
 ipa: application
