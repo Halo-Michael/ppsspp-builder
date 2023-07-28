@@ -1,8 +1,8 @@
 .PHONY: all clean
 
 LDID=/usr/local/bin/ldid
-MAKE=/usr/local/Cellar/make/4.3/libexec/gnubin/make
-SED=/usr/local/Cellar/gnu-sed/4.8/libexec/gnubin/sed
+MAKE=/usr/local/opt/make/libexec/gnubin/make
+SED=/usr/local/opt/gnu-sed/libexec/gnubin/sed
 
 all: ipa deb
 
